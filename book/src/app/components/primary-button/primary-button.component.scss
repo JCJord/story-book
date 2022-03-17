@@ -1,11 +1,13 @@
 button {
     all:unset;
+    font-family: 'Courier New', Courier, monospace;
     padding: 8px 18px;
     color: rgb(0, 0, 0);
-    border: 2px solid rgb(71, 71, 71);
+    border: 2px solid rgb(0, 0, 0);
     cursor: pointer;
     border-radius: 2px;
-   
+    font-size: 14px;
+    text-transform: uppercase;
     transition: ease .4s;
     &:hover{
        

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-primary-button',
@@ -12,10 +12,15 @@ export class PrimaryButtonComponent implements OnInit {
   @Input()
   color!:string;
   
+  @Output()
+  onViewDetails = new EventEmitter<any>();
 
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 
+  clickViewDetails(index:number){
+    this.onViewDetails.emit({id: index})
+  }
 }
