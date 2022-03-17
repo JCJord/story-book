@@ -3,4 +3,13 @@ button {
     padding: 8px 18px;
     color: rgb(0, 0, 0);
     border: 2px solid rgb(71, 71, 71);
+    cursor: pointer;
+    border-radius: 2px;
+   
+    transition: ease .4s;
+    &:hover{
+       
+        background: rgb(53, 53, 53) !important;
+        color: aliceblue;
+    }
 }
