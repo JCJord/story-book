@@ -60,7 +60,7 @@
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-6a1f8a3ca6cc7eed44a0ba506eea3ed24de8cb2e45fd2a9ae3207035c43fdd5c56e6bdff9da407ef8884933b065c19fb967d30a5c40fd8a3472ca2eec39123cd",
+            "id": "component-HomeComponent-eb82ef71e908c8d18c0ea280711813f588960dc305faf361080e2e21fc13181139723f416ee3545d73ded3d3786817d616d0b1574657a4205bda72d0eb11670d",
             "file": "src/app/pages/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -81,6 +81,34 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
+                    "name": "getDetails",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
@@ -98,7 +126,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  getDetails(e:any){\n    console.log(e)\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -118,7 +146,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div style=\"border: dotted; display: flex; justify-content: center\">\n    <app-primary-button [label]=\"'Hello World'\" [color]=\"'#ffff'\"></app-primary-button>\n</div>"
+            "templateData": "<div style=\"border: dotted; display: flex; justify-content: center\">\n    <app-primary-button [label]=\"'Hello World'\" [color]=\"'#ffff'\" (onViewDetails)=\"getDetails($event)\"></app-primary-button>\n</div>"
         },
         {
             "name": "PrimaryButtonComponent",
@@ -352,6 +380,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/home.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -382,6 +420,16 @@
                 "defaultValue": "Template.bind({})"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/home.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -399,6 +447,16 @@
                 "deprecationMessage": "",
                 "type": "Story<PrimaryButtonComponent>",
                 "defaultValue": "(args: PrimaryButtonComponent) => ({\n  props: {\n    ...args,\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\n  },\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/home.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
             }
         ],
         "functions": [],
@@ -456,6 +514,38 @@
                     "deprecationMessage": "",
                     "type": "Story<PrimaryButtonComponent>",
                     "defaultValue": "(args: PrimaryButtonComponent) => ({\n  props: {\n    ...args,\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\n  },\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \n})"
+                }
+            ],
+            "src/stories/home.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/home.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/home.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/home.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<HomeComponent>",
+                    "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -534,7 +624,7 @@
                 "linktype": "component",
                 "name": "HomeComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -579,6 +669,36 @@
             },
             {
                 "filePath": "src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/home.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

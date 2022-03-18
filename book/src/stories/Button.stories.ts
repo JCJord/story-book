@@ -5,7 +5,7 @@ import { PrimaryButtonComponent } from 'src/app/components/primary-button/primar
 import { action } from '@storybook/addon-actions'
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: PrimaryButtonComponent,
   // More on argTypes: https://storybook.js.org/docs/angular/api/argtypes
   argTypes: { },
@@ -35,4 +35,5 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Primary.args = {
   label: 'Button',
+  color:'cyan',
 };
