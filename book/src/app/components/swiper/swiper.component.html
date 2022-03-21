@@ -1,16 +1,18 @@
-<!-- <div style="max-width: 500px;">
-    <swiper
-      [slidesPerView]="1"
-      [spaceBetween]="40"
-      [navigation]="true"
-      *ngFor="let b of breeds; let i = index;"
+<div class="col-lg-8 p-0">
+  <div class="swiper-wrapper">
+      <swiper
+          
+          [config]="swiperConfig"
+          class=""
       >
-
-      <ng-template swiperSlide>{{b}}</ng-template>
-     
-
-    </swiper>
+          <ng-template swiperSlide *ngFor="let b of breeds" >
+              <div>
+                  {{b}}
+                  <img style="width: 150px; height: 150px;"  [src]="b" />
+                  
+              </div>
+          </ng-template>
+      </swiper>
     
-</div> -->
-
-<div *ngFor="let b of breeds">{{b}}</div>
+  </div>
+</div>
