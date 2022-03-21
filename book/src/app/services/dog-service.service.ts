@@ -6,7 +6,7 @@ import { tap } from "rxjs/operators";
   providedIn: 'root'
 })
 export class DogServiceService {
-  breeds:[] = []
+ 
 
   constructor(private http: HttpClient) {
 

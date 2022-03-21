@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { lastValueFrom} from 'rxjs'
 import { DogServiceService } from 'src/app/services/dog-service.service';
 import SwiperCore, { Navigation } from 'swiper'
@@ -8,8 +8,9 @@ import SwiperCore, { Navigation } from 'swiper'
   templateUrl: './swiper.component.html',
   styleUrls: ['./swiper.component.scss']
 })
-export class SwiperComponent implements OnInit {
+export class SwiperComponent {
 
+  @Input()
   breeds:any = []
 
   swiperConfig: any = {
@@ -19,16 +20,6 @@ export class SwiperComponent implements OnInit {
 }
 
 
-  constructor(private dogService:DogServiceService) { }
-
-  ngOnInit(): void {
-    this.test()
-  }
-  test(){
-    this.dogService.getData().toPromise().then((e:any)=>{
-      console.log(e.message)
-      this.breeds = e.message
-    })
-  }
+  constructor() { }
 
 }
