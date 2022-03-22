@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "DogServiceService",
-            "id": "injectable-DogServiceService-1807cee3b092986d0717de98c9aa7487085f427be6a00440e24cc9062b4a55669bf1078f5a881ec02109b3d185320ea6e6104fcc1bf2b0d45facd274df313d34",
+            "id": "injectable-DogServiceService-c5ad9904c926aae69e54dd674f51d0e562a024f91a6c3fd19b16e548c8946038c61f1f7c3e5b4e2adc638813f652a8eda4f674542d17a2a4cdb7b4112c74e213",
             "file": "src/app/services/dog-service.service.ts",
             "properties": [],
             "methods": [
@@ -14,7 +14,7 @@
                     "optional": false,
                     "returnType": "Observable<>",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 14,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -23,7 +23,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from \"@angular/common/http\";\nimport { Observable } from 'rxjs';\nimport { tap } from \"rxjs/operators\";\n@Injectable({\n  providedIn: 'root'\n})\nexport class DogServiceService {\n \n\n  constructor(private http: HttpClient) {\n\n  }\n\n  getData(): Observable<[]>{\n    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images')\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from \"@angular/common/http\";\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class DogServiceService {\n \n\n  constructor(private http: HttpClient) {\n\n  }\n\n  getData(): Observable<[]>{\n    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images')\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -37,7 +37,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 8,
+                "line": 7,
                 "jsdoctags": [
                     {
                         "name": "http",
@@ -356,7 +356,7 @@
         },
         {
             "name": "SwiperComponent",
-            "id": "component-SwiperComponent-6b9f5f648aedfeea4ef213273f8a399aad049531a4fa12353e0600b551c8199d187de6b5747afb0be90dcaa6a8ccb3b62517c34cf8c889fd73738e590c49afc3",
+            "id": "component-SwiperComponent-71104a98ac23620efb6bc4b03acfb79767e6184a8628e35edf890d193c8eb9f2197c83884752cb955e91164e2178438e7650b28eb6a7b2e31321f9ffa6bffdb5",
             "file": "src/app/components/swiper/swiper.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -378,7 +378,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 10,
                     "type": "any",
                     "decorators": []
                 }
@@ -393,7 +393,7 @@
                     "type": "any",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 12
                 }
             ],
             "methodsClass": [],
@@ -404,7 +404,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { lastValueFrom} from 'rxjs'\nimport { DogServiceService } from 'src/app/services/dog-service.service';\nimport SwiperCore, { Navigation } from 'swiper'\n\n@Component({\n  selector: 'app-swiper',\n  templateUrl: './swiper.component.html',\n  styleUrls: ['./swiper.component.scss']\n})\nexport class SwiperComponent {\n\n  @Input()\n  breeds:any = []\n\n  swiperConfig: any = {\n    slidesPerView: 2,\n    spaceBetween: 10,\n    initialSlide : 1,\n}\n\n\n  constructor() { }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n@Component({\n  selector: 'app-swiper',\n  templateUrl: './swiper.component.html',\n  styleUrls: ['./swiper.component.scss']\n})\nexport class SwiperComponent {\n\n  @Input()\n  breeds:any = []\n\n  swiperConfig: any = {\n    slidesPerView: 2,\n    spaceBetween: 10,\n    initialSlide : 1,\n}\n\n\n  constructor() { }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -419,9 +419,9 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 20
+                "line": 16
             },
-            "templateData": "<div class=\"col-lg-8 p-0\">\n  <div class=\"swiper-wrapper border\">\n      <swiper\n          \n          [config]=\"swiperConfig\"\n          class=\"\"\n      >\n          <ng-template swiperSlide *ngFor=\"let b of breeds\" >\n              <div>\n                  {{b}}\n                  <img style=\"width: 150px; height: 150px;\"  [src]=\"b\" />\n                  \n              </div>\n          </ng-template>\n      </swiper>\n    \n  </div>\n\n</div>\n\n <app-primary-button [color]=\"'cyan'\" [label]=\"'hide/show'\"></app-primary-button>"
+            "templateData": "<div class=\"col-lg-8 p-0\">\n  <div class=\"swiper-wrapper border\">\n      <swiper\n          \n          [config]=\"swiperConfig\"\n          class=\"\"\n      >\n          <ng-template swiperSlide *ngFor=\"let b of breeds\" >\n              <div>\n                  {{b}}\n                  <img style=\"width: 150px; height: 150px;\"  [src]=\"b\" />\n                  \n              </div>\n          </ng-template>\n          {{breeds}}\n      </swiper>\n    \n  </div>\n\n</div>\n\n <app-primary-button [color]=\"'cyan'\" [label]=\"'hide/show'\"></app-primary-button>"
         }
     ],
     "modules": [
@@ -522,6 +522,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "breeds",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/swiper.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
+            },
+            {
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -545,21 +555,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "HomePage",
@@ -604,21 +614,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/home.stories.ts",
+                "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<HomeComponent>",
-                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
+                "type": "Story<PrimaryButtonComponent>",
+                "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails: action('onViewDetails')\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/stories/home.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<PrimaryButtonComponent>",
-                "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
             },
             {
                 "name": "Template",
@@ -635,6 +645,38 @@
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/swiper.stories.ts": [
+                {
+                    "name": "breeds",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/swiper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "defaultValue": "'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'"
+                },
+                {
+                    "name": "Slider",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/swiper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/swiper.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<SwiperComponent>",
+                    "defaultValue": "(args: SwiperComponent) => ({\r\n  props: {\r\n    ...args,\r\n   \r\n  },\r\n  template:`<app-swiper [breeds]=\"breeds\"></app-swiper>` \r\n})"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -685,19 +727,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<PrimaryButtonComponent>",
-                    "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
-                }
-            ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails: action('onViewDetails')\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -710,6 +740,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/stories/home.stories.ts": [
@@ -732,28 +774,6 @@
                     "deprecationMessage": "",
                     "type": "Story<HomeComponent>",
                     "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
-                }
-            ],
-            "src/stories/swiper.stories.ts": [
-                {
-                    "name": "Slider",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/swiper.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/swiper.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<SwiperComponent>",
-                    "defaultValue": "(args: SwiperComponent) => ({\r\n  props: {\r\n    ...args,\r\n   \r\n  },\r\n  template:`<app-swiper [breeds]=\"breeds\"></app-swiper>` \r\n})"
                 }
             ]
         },
@@ -895,6 +915,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/swiper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "breeds",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

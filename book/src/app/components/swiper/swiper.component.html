@@ -5,13 +5,17 @@
           [config]="swiperConfig"
           class=""
       >
-          <ng-template swiperSlide *ngFor="let b of breeds" >
+          <ng-template swiperSlide *ngFor="let b of breeds; let i = index;" >
               <div>
                   {{b}}
+
+                  
                   <img style="width: 150px; height: 150px;"  [src]="b" />
                   
               </div>
           </ng-template>
+          <div  *ngFor="let b of breeds; let i = index;"> {{b}}</div>
+          {{ breeds }}
       </swiper>
     
   </div>

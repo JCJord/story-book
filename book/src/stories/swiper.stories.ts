@@ -1,10 +1,11 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
+import { PrimaryButtonComponent } from 'src/app/components/primary-button/primary-button.component';
 
-import { action } from '@storybook/addon-actions'
 import { SwiperComponent } from 'src/app/components/swiper/swiper.component';
-import { DogServiceService } from 'src/app/services/dog-service.service';
+import { SwiperModule } from 'swiper/angular';
+
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
   title: 'Components/Swiper',
@@ -13,8 +14,8 @@ export default {
   argTypes: { },
   decorators:[
     moduleMetadata({
-      imports:[],
-      declarations:[SwiperComponent],
+      imports:[SwiperModule],
+      declarations:[SwiperComponent,PrimaryButtonComponent],
     })
   ]
 } as Meta;
@@ -27,11 +28,8 @@ const Template: Story<SwiperComponent> = (args: SwiperComponent) => ({
   },
   template:`<app-swiper [breeds]="breeds"></app-swiper>` 
 });
-
+let breeds:any = ['https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg']
 export const Slider = Template.bind({});
 Slider.args = {
-    breeds:[
-    'https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg',
-    'https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg',
-    'https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg'],
+    breeds: breeds
 };
