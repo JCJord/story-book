@@ -20,7 +20,7 @@ export default {
 const Template: Story<PrimaryButtonComponent> = (args: PrimaryButtonComponent) => ({
   props: {
     ...args,
-    onViewDetails:{ onViewDetails: action('onViewDetails')}
+    onViewDetails: action('onViewDetails')
   },
   template:`<app-primary-button [label]="label" [color]="'#ffff'" (onViewDetails)="onViewDetails($event)"></app-primary-button>` 
 });

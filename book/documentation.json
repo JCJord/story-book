@@ -545,21 +545,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "HomePage",
@@ -604,11 +604,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/home.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<PrimaryButtonComponent>",
-                "defaultValue": "(args: PrimaryButtonComponent) => ({\n  props: {\n    ...args,\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\n  },\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \n})"
+                "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
             },
             {
                 "name": "Template",
@@ -619,16 +629,6 @@
                 "deprecationMessage": "",
                 "type": "Story<SwiperComponent>",
                 "defaultValue": "(args: SwiperComponent) => ({\r\n  props: {\r\n    ...args,\r\n   \r\n  },\r\n  template:`<app-swiper [breeds]=\"breeds\"></app-swiper>` \r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/home.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<HomeComponent>",
-                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
             }
         ],
         "functions": [],
@@ -685,19 +685,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<PrimaryButtonComponent>",
-                    "defaultValue": "(args: PrimaryButtonComponent) => ({\n  props: {\n    ...args,\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\n  },\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \n})"
-                }
-            ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "defaultValue": "(args: PrimaryButtonComponent) => ({\r\n  props: {\r\n    ...args,\r\n    onViewDetails:{ onViewDetails: action('onViewDetails')}\r\n  },\r\n  template:`<app-primary-button [label]=\"label\" [color]=\"'#ffff'\" (onViewDetails)=\"onViewDetails($event)\"></app-primary-button>` \r\n})"
                 }
             ],
             "src/environments/environment.ts": [
@@ -710,6 +698,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/stories/home.stories.ts": [
