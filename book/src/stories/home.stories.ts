@@ -2,9 +2,12 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
+import { PrimaryButtonComponent } from 'src/app/components/primary-button/primary-button.component';
+import { SwiperComponent } from 'src/app/components/swiper/swiper.component';
 
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { DogServiceService } from 'src/app/services/dog-service.service';
+import { SwiperModule } from 'swiper/angular';
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
   title: 'Pages/Pages',
@@ -13,7 +16,8 @@ export default {
   argTypes: { },
   decorators:[
     moduleMetadata({
-      declarations:[HomeComponent],
+      imports:[SwiperModule],
+      declarations:[HomeComponent,SwiperComponent,PrimaryButtonComponent],
       providers:[DogServiceService,HttpClient,HttpHandler]
     })
   ]
@@ -30,6 +34,5 @@ const Template: Story<HomeComponent> = (args: HomeComponent) => ({
 
 export const HomePage = Template.bind({});
 HomePage.args = {
-
-
+    breeds:['https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg']
 };
