@@ -1,4 +1,5 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { PrimaryButtonComponent } from 'src/app/components/primary-button/primary-button.component';
@@ -14,7 +15,7 @@ export default {
   argTypes: { },
   decorators:[
     moduleMetadata({
-      imports:[SwiperModule],
+      imports:[SwiperModule, BrowserAnimationsModule],
       declarations:[SwiperComponent,PrimaryButtonComponent],
     })
   ]
