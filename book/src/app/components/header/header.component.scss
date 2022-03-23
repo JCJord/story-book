@@ -1,0 +1,11 @@
+.sidenav{
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    transition: width .5s ease-in-out;
+}
+
+.btn-box{
+    position: relative;
+    z-index: 9;
+}
