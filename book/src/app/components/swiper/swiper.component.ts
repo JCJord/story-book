@@ -35,6 +35,5 @@ export class SwiperComponent {
 
   changeState(){
     this.state == 'normal' ? this.state = 'highlighted' : this.state = 'normal'
-    console.log(this.state)
   }
 }

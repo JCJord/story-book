@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
 import { DogServiceService } from 'src/app/services/dog-service.service';
 
 @Component({
@@ -8,23 +9,21 @@ import { DogServiceService } from 'src/app/services/dog-service.service';
 })
 export class HomeComponent implements OnInit {
   breeds:any = []
-  details!:any;
+  details = 0;
   constructor(private dogService:DogServiceService) { }
 
 
   ngOnInit(): void {
     this.test()
   }
-  test(){
-    this.dogService.getData().toPromise().then((e:any)=>{
-      console.log(e.message)
-      this.breeds = e.message
-      console.log(e.message)
-    })
+  async test(){
+    let data:any = await lastValueFrom(this.dogService.getData())
+    console.log(data.message)
+    this.breeds = data.message
+  
   }
   getDetails(e:any){
-    this.details = e.id
-
+    this.details === 0 ? this.details = e.id : this.details = e.id+this.details;
   }
 }
 

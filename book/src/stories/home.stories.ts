@@ -36,5 +36,6 @@ const Template: Story<HomeComponent> = (args: HomeComponent) => ({
 
 export const HomePage = Template.bind({});
 HomePage.args = {
+  details:0,
     breeds:['https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg','https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg']
 };

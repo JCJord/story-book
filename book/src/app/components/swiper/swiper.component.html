@@ -1,9 +1,8 @@
 <div class="col-lg-8 p-0">
   <div class="swiper-wrapper border">
       <swiper
-      [@divState]="state" style="max-height:400px; transition: max-height 0.2s ease-out;"
+      [@divState]="state" style="max-height:400px; transition: max-height 1s ease-out;"
           [config]="swiperConfig"
-          class=""
       >
           <ng-template swiperSlide *ngFor="let b of breeds; let i = index;" >
               <div>
