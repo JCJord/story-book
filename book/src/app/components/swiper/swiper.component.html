@@ -1,7 +1,7 @@
 <div class="col-lg-8 p-0">
   <div class="swiper-wrapper border">
       <swiper
-          
+      [@divState]="state" style="max-height:400px; transition: max-height 0.2s ease-out;"
           [config]="swiperConfig"
           class=""
       >
@@ -22,4 +22,4 @@
 
 </div>
 
- <app-primary-button [color]="'cyan'" [label]="'hide/show'"></app-primary-button>
+ <app-primary-button [color]="'cyan'" (click)="changeState()" [label]="'hide/show'"></app-primary-button>
