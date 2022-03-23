@@ -8,6 +8,7 @@ import { DogServiceService } from 'src/app/services/dog-service.service';
 })
 export class HomeComponent implements OnInit {
   breeds:any = []
+  details!:any;
   constructor(private dogService:DogServiceService) { }
 
 
@@ -22,6 +23,8 @@ export class HomeComponent implements OnInit {
     })
   }
   getDetails(e:any){
-    console.log(e)
+    this.details = e.id
+
   }
 }
+
