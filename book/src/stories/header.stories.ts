@@ -1,6 +1,8 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { action } from '@storybook/addon-actions';
 import { moduleMetadata } from '@storybook/angular';
-import { Story, Meta } from '@storybook/angular/types-6-0';
+import { Story, Meta ,} from '@storybook/angular/types-6-0';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
@@ -10,7 +12,7 @@ export default {
   argTypes: { },
   decorators:[
     moduleMetadata({
-      imports:[],
+      imports:[BrowserAnimationsModule],
       declarations:[HeaderComponent]
     })
   ]
@@ -20,11 +22,12 @@ export default {
 const Template: Story<HeaderComponent> = (args: HeaderComponent) => ({
   props: {
     ...args,
+    actualState: action('menuState')
   },
-  template:`<app-header></app-header>` 
+  template:`<app-header (menuState)="actualState($event)"></app-header>`
 });
 
 export const Default = Template.bind({});
 Default.args = {
-
+  state:'open'
 };
