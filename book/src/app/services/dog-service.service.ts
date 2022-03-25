@@ -12,6 +12,6 @@ export class DogServiceService {
   }
 
   getData(): Observable<[]>{
-    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images')
+    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images');
   }
 }
