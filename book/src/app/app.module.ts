@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PrimaryButtonComponent } from './components/primary-button/primary-button.component';
 import { SwiperComponent } from './components/swiper/swiper.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SubjectComponent } from './components/subject/subject.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     PrimaryButtonComponent,
     SwiperComponent,
-    HeaderComponent
+    HeaderComponent,
+    SubjectComponent
   ],
   imports: [
     BrowserAnimationsModule,
