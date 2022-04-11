@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   }
   async test(){
     let data:any = await lastValueFrom(this.dogService.getData())
-    console.log(data.message)
     this.breeds = data.message
   
   }

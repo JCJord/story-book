@@ -11,6 +11,7 @@ import { PrimaryButtonComponent } from './components/primary-button/primary-butt
 import { SwiperComponent } from './components/swiper/swiper.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SubjectComponent } from './components/subject/subject.component';
+import { InfoComponent } from './pages/info/info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SubjectComponent } from './components/subject/subject.component';
     PrimaryButtonComponent,
     SwiperComponent,
     HeaderComponent,
-    SubjectComponent
+    SubjectComponent,
+    InfoComponent
   ],
   imports: [
     BrowserAnimationsModule,
