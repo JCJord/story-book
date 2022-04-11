@@ -3,6 +3,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
+import { AppComponent } from 'src/app/app.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { PrimaryButtonComponent } from 'src/app/components/primary-button/primary-button.component';
 import { SwiperComponent } from 'src/app/components/swiper/swiper.component';
@@ -19,7 +20,7 @@ export default {
   decorators:[
     moduleMetadata({
       imports:[SwiperModule,BrowserAnimationsModule],
-      declarations:[HomeComponent,SwiperComponent,PrimaryButtonComponent,HeaderComponent],
+      declarations:[HomeComponent,SwiperComponent,PrimaryButtonComponent,HeaderComponent,AppComponent],
       providers:[DogServiceService,HttpClient,HttpHandler]
     })
   ]
