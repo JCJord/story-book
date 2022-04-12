@@ -29,6 +29,9 @@ export class SubjectComponent implements OnInit {
     }
 
     this.behaviorSubject.subscribe((a:any) => console.log('obs-1' + a))
+    this.behaviorSubject.subscribe((a:any) => console.log('obs-2' + a))
+    this.behaviorSubject.subscribe((a:any) => console.log('obs-3' + a))
+    this.behaviorSubject.subscribe((a:any) => console.log('obs-4' + a))
 
     
     this.subjectService.setData(newObject)
