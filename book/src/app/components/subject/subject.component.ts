@@ -7,7 +7,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./subject.component.scss']
 })
 export class SubjectComponent implements OnInit {
-  behaviorSubject = new BehaviorSubject<string>('Default');
 
   data = null
 
@@ -21,26 +20,16 @@ export class SubjectComponent implements OnInit {
   }
 
   changeObservableValue(){
-    const newObject = {
-      name:'jc',
-      age:5,
-      born:1990,
-      car:'Fiat 141'
+    const newObject2 = {
+      name:'XXXXXXX',
+      age:987,
+      born:1023,
+      car:'rock'
     }
-
-    this.behaviorSubject.subscribe((a:any) => console.log('obs-1' + a))
-    this.behaviorSubject.subscribe((a:any) => console.log('obs-2' + a))
-    this.behaviorSubject.subscribe((a:any) => console.log('obs-3' + a))
-    this.behaviorSubject.subscribe((a:any) => console.log('obs-4' + a))
-
-    setTimeout(()=>{
-      this.behaviorSubject.subscribe((a:any) => console.log('obs-5' + a))
-    },4000)
     
-    this.behaviorSubject.subscribe((a:any) => console.log('obs-4' + a))
-
+    this.subjectService.setData(newObject2)
     
-    
-    this.subjectService.setData(newObject)
   }
+
+
 }
