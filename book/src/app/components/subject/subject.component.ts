@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SubjectService } from 'src/app/services/subject.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',
   styleUrls: ['./subject.component.scss']
 })
 export class SubjectComponent implements OnInit {
+
+  replaySubject = new ReplaySubject(3)
 
   data = null
 
@@ -17,6 +19,20 @@ export class SubjectComponent implements OnInit {
        this.data = e
      })
     
+     this.replaySubject.next(5)
+     this.replaySubject.next(15)
+
+     this.replaySubject.subscribe((e)=>{
+        console.log(e)
+     })
+     setTimeout(()=>{
+      this.replaySubject.next(25)
+
+
+      this.replaySubject.subscribe((e)=>{
+        console.log(e)
+     })
+     },3000)
   }
 
   changeObservableValue(){
