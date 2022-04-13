@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "DogServiceService",
-            "id": "injectable-DogServiceService-c5ad9904c926aae69e54dd674f51d0e562a024f91a6c3fd19b16e548c8946038c61f1f7c3e5b4e2adc638813f652a8eda4f674542d17a2a4cdb7b4112c74e213",
+            "id": "injectable-DogServiceService-d8dd3e1c8fd3bef864efa921588ffcfaa0388142df64d841a732152809deaf8c493ab809cb0267d581504d70bd073ac861790304dbcd7b2b57e72ec6e5ce4849",
             "file": "src/app/services/dog-service.service.ts",
             "properties": [],
             "methods": [
@@ -23,7 +23,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from \"@angular/common/http\";\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class DogServiceService {\n \n\n  constructor(private http: HttpClient) {\n\n  }\n\n  getData(): Observable<[]>{\n    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images')\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient } from \"@angular/common/http\";\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class DogServiceService {\n \n\n  constructor(private http: HttpClient) {\n\n  }\n\n  getData(): Observable<[]>{\n    return this.http.get<[]>('https://dog.ceo/api/breed/hound/images');\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -60,7 +60,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-b352ef23489ef43343649c618d7accc6b85fab58080c2eaf55139dfdbc303067de2586b66d5ce993719bd4d2c5e32cb37185927df887418d41f5f0c7c7b583a0",
+            "id": "component-AppComponent-cd1dd9fcfebf665cc73e6d612fc5aa70ecedbb2ffe84165e9813d8a944afd5310647cb748fea4b448ad2a20eed7870d151e55d74b88239ddf5e9e79331e679b3",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -80,6 +80,16 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "menu",
+                    "defaultValue": "'closed'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
                     "name": "title",
                     "defaultValue": "'book'",
                     "deprecated": false,
@@ -90,7 +100,36 @@
                     "line": 9
                 }
             ],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "actualState",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -98,20 +137,20 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'book';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'book';\n\n  menu = 'closed'\n\n  actualState(e:string){\n    this.menu = e\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".ml-200{\r\n    margin-left: 200px;\r\n}",
                     "styleUrl": "./app.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "\n<app-header></app-header>\n<router-outlet></router-outlet>\n"
+            "templateData": "<app-header (menuState)=\"actualState($event)\"></app-header>\n<div class=\"main-layout\" style=\"transition: all .5s ease-in-out;\" [ngClass]=\"{'ml-200': menu === 'open'}\">\n    \n    <router-outlet></router-outlet>\n</div>"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-fa2aa27e4139e9793b910068b910e321596a2d195bfa0fd7b8f5f3b804a9b0685cdd9f1a71b7fbe6a9f73526113a68baf80e312c4440dab15890fd39dc4c0aac",
+            "id": "component-HeaderComponent-a50c771144c743c2db08e30d80cb0af3c0531765a24524c41dff599d33c642649505085002242ce6b15ea834270ca0a5a85d0477a64c3136ce86cd99e21b916b",
             "file": "src/app/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -128,16 +167,46 @@
             ],
             "viewProviders": [],
             "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
+            "outputsClass": [
+                {
+                    "name": "menuState",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "state",
+                    "defaultValue": "'closed'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "changeState",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -149,11 +218,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class HeaderComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { state, style, trigger } from '@angular/animations';\nimport { Component, EventEmitter, OnInit, Output } from '@angular/core';\n\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n  animations:[\n    trigger('sideNav',[\n      state('open',style({\n        width:'200px'\n      })),\n      state('closed',style({\n        width:'0px'\n      }))\n    ])\n  ]\n})\nexport class HeaderComponent implements OnInit {\n  @Output()\n  menuState = new EventEmitter<string>();\n\n  state = 'closed'\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  changeState(){\n    this.state === 'closed' ? this.state = 'open' : this.state = 'closed';\n    this.menuState.emit(this.state)\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".sidenav{\r\n    height: 100%;\r\n    background-color: black;\r\n    position: absolute;\r\n    transition: width .5s ease-in-out;\r\n}\r\n\r\n.btn-box{\r\n    position: relative;\r\n    z-index: 9;\r\n}",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -164,16 +233,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 24
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>header works!</p>\n"
+            "templateData": "<div class=\"btn-box\">\n    <button class=\"btn-primary p-2\" (click)=\"changeState()\">Toggle Nav</button>\n</div>\n\n\n<div class=\"sidenav\" [@sideNav]=\"state\">\n    \n</div>"
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-7a3b36d696145a3a482e7b9baef8d9e527a2520be863afdbdeec1dde1065594e01c7a7b2a22662e7705b98c1f1b981a63ffedd3ee6ba4bb9f64c40996fc51bc5",
+            "id": "component-HomeComponent-9d57282fe9f7a416e79f57b8069ac8f3833f23f51ca35e332db72da2b37a4862bb452d37e5739128f21d0d169a59396377afe5083497ad9271088f1dcc33f3fc",
             "file": "src/app/pages/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -204,6 +273,7 @@
                 },
                 {
                     "name": "details",
+                    "defaultValue": "0",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "number",
@@ -272,7 +342,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { lastValueFrom } from 'rxjs';\nimport { DogServiceService } from 'src/app/services/dog-service.service';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n  breeds:any = []\n  details!:number;\n  constructor(private dogService:DogServiceService) { }\n\n\n  ngOnInit(): void {\n    this.test()\n  }\n  async test(){\n    let data:any = await lastValueFrom(this.dogService.getData())\n    console.log(data.message)\n    this.breeds = data.message\n  \n  }\n  getDetails(e:any){\n    this.details == undefined ? this.details = e.id : this.details = e.id+this.details;\n  }\n}\n\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { lastValueFrom } from 'rxjs';\nimport { DogServiceService } from 'src/app/services/dog-service.service';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n  breeds:any = []\n  details = 0;\n  constructor(private dogService:DogServiceService) { }\n\n\n  ngOnInit(): void {\n    this.test()\n  }\n  async test(){\n    let data:any = await lastValueFrom(this.dogService.getData())\n    console.log(data.message)\n    this.breeds = data.message\n  \n  }\n  getDetails(e:any){\n    this.details === 0 ? this.details = e.id : this.details = e.id+this.details;\n  }\n}\n\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -623,7 +693,7 @@
                 "name": "breeds",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/swiper.stories.ts",
+                "file": "src/app/components/swiper/swiper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "any",
@@ -643,7 +713,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/header.stories.ts",
+                "file": "src/app/components/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -653,7 +723,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/primary-button/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -683,7 +753,7 @@
                 "name": "HomePage",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/home.stories.ts",
+                "file": "src/app/pages/home/home.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -693,7 +763,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/primary-button/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -712,7 +782,7 @@
                 "name": "Slider",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/swiper.stories.ts",
+                "file": "src/app/components/swiper/swiper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -722,27 +792,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/header.stories.ts",
+                "file": "src/app/components/header/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n  template:`<app-header></app-header>` \r\n})"
+                "defaultValue": "(args: HeaderComponent) => ({\r\n  props: {\r\n    ...args,\r\n    actualState: action('menuState')\r\n  },\r\n  template:`<app-header (menuState)=\"actualState($event)\"></app-header>`\r\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/home.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<HomeComponent>",
-                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
+                "file": "src/app/components/primary-button/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<PrimaryButtonComponent>",
@@ -752,23 +812,33 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/swiper.stories.ts",
+                "file": "src/app/components/swiper/swiper.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<SwiperComponent>",
                 "defaultValue": "(args: SwiperComponent) => ({\r\n  props: {\r\n    ...args,\r\n   \r\n  },\r\n  template:`<app-swiper [breeds]=\"breeds\"></app-swiper>` \r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/pages/home/home.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<HomeComponent>",
+                "defaultValue": "(args: HomeComponent) => ({\r\n  props: {\r\n    ...args,\r\n    \r\n  },\r\n  template:`<app-home></app-home>` \r\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/swiper.stories.ts": [
+            "src/app/components/swiper/swiper.stories.ts": [
                 {
                     "name": "breeds",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/swiper.stories.ts",
+                    "file": "src/app/components/swiper/swiper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "any",
@@ -778,7 +848,7 @@
                     "name": "Slider",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/swiper.stories.ts",
+                    "file": "src/app/components/swiper/swiper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -788,7 +858,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/swiper.stories.ts",
+                    "file": "src/app/components/swiper/swiper.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<SwiperComponent>",
@@ -816,12 +886,12 @@
                     "type": "literal type"
                 }
             ],
-            "src/stories/header.stories.ts": [
+            "src/app/components/header/header.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/header.stories.ts",
+                    "file": "src/app/components/header/header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -831,19 +901,19 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/header.stories.ts",
+                    "file": "src/app/components/header/header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => ({\r\n  props: {\r\n    ...args,\r\n  },\r\n  template:`<app-header></app-header>` \r\n})"
+                    "defaultValue": "(args: HeaderComponent) => ({\r\n  props: {\r\n    ...args,\r\n    actualState: action('menuState')\r\n  },\r\n  template:`<app-header (menuState)=\"actualState($event)\"></app-header>`\r\n})"
                 }
             ],
-            "src/stories/Button.stories.ts": [
+            "src/app/components/primary-button/Button.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/components/primary-button/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -853,7 +923,7 @@
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/components/primary-button/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -863,7 +933,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
+                    "file": "src/app/components/primary-button/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<PrimaryButtonComponent>",
@@ -894,12 +964,12 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/stories/home.stories.ts": [
+            "src/app/pages/home/home.stories.ts": [
                 {
                     "name": "HomePage",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/home.stories.ts",
+                    "file": "src/app/pages/home/home.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -909,7 +979,7 @@
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/home.stories.ts",
+                    "file": "src/app/pages/home/home.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<HomeComponent>",
@@ -950,7 +1020,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -959,7 +1029,57 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/header/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/primary-button/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/primary-button/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/primary-button/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -981,12 +1101,62 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/swiper/swiper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "breeds",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/swiper/swiper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Slider",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/swiper/swiper.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/pages/home/home.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "HomeComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HomePage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pages/home/home.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -1014,106 +1184,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/home.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "HomePage",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/home.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/swiper.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "breeds",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/swiper.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Slider",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/swiper.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

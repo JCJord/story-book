@@ -8,6 +8,16 @@
     <div style="margin: 0 auto; width: fit-content; height: fit-content;">
         <app-swiper [breeds]="breeds"></app-swiper>
     </div>
+
+    <div>
+        <app-subject></app-subject>
+    </div>
+
+    <div style="background: lightblue; width: 200px; height: 200px; border-radius:4px; text-align: center; cursor: pointer;" (click)="pipeMethod()">Map function</div>
+
+    <div class="alert alert-warning pt-2 pb-3" role="alert">
+        <a routerLink="/info" class="fw-bold">Go to Info</a>
+      </div>
 </div>
     
         
