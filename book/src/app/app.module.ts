@@ -12,6 +12,7 @@ import { SwiperComponent } from './components/swiper/swiper.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SubjectComponent } from './components/subject/subject.component';
 import { InfoComponent } from './pages/info/info.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InfoComponent } from './pages/info/info.component';
     BrowserModule,
     AppRoutingModule,
     SwiperModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

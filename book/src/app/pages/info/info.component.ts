@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
@@ -9,9 +10,16 @@ import { SubjectService } from 'src/app/services/subject.service';
 export class InfoComponent implements OnInit {
   data = null
   data2 = null
+
+  exform!:FormGroup
+
   constructor(private subjectService:SubjectService) { }
 
   ngOnInit(): void {
+    this.exform = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+
+    })
     const newObject = {
       name:'jc',
       age:5,
